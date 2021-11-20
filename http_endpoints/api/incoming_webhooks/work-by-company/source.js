@@ -38,8 +38,8 @@ exports = async function(payload) {
        'positions': {
          '$addToSet': {
            'position': '$position', 
-           'startDate': '$startDate', 
            'endDate': '$endDate', 
+           'startDate': '$startDate',
            'location': '$location'
          }
        }
