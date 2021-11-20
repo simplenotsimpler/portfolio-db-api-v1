@@ -66,26 +66,6 @@ exports = async function(payload) {
 
  const work = await mycollection.aggregate(pipeline).toArray();
 
- //replace companyEndDate with present if current date
- work.forEach((el) => {     
-   if(el.companyEndDate === currentDate){
-     el.companyEndDate = 'Present';
-   }
- });
-
-   
- // replace position end dates w/ present if today's date
- work.forEach((el)=>{
-   el.positions.forEach((position)=> {
-     if(position.endDate === currentDate){
-       position.endDate = 'Present';
-     }
-     if(position.endDate === el.companyEndDate){
-       el.location = position.location;
-     }
-   })
- });
-
  return work;
 
 };
